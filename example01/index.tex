@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt]{article}
+
+% Установка отступов
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+% Поддержка русского языка и кастомных шрифтов
+\usepackage{fontspec}
+\setmainfont{Liberation Serif} % Основной шрифт
+\setsansfont{Liberation Sans} % Шрифт без засечек
+\setmonofont{FreeMono} % Моноширинный шрифт для кода
+
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}  % Язык по умолчанию
+\setotherlanguage{english}    % Дополнительный язык
+
+% Определение кириллического шрифта для шрифтов с ограниченной поддержкой
+\newfontfamily\cyrillicfonttt[Script=Cyrillic]{FreeMono} % Моноширинный для кириллицы
+\newfontfamily\cyrillicfontsf[Script=Cyrillic]{Liberation Sans} % Без засечек для кириллицы
+\newfontfamily\cyrillicfont[Script=Cyrillic]{Liberation Serif}   % Основной для кириллицы
+
+% Пакеты для оформления и кода
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Настройка заголовков
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Настройка стиля страницы
+\pagestyle{fancy}          % Устанавливает стиль "fancy"
+\fancyhf{}                 % Очищает все области колонтитулов
+\fancyfoot[C]{\thepage}    % Номер страницы внизу по центру
+\fancyhead{}               % Очищает верхний колонтитул
+\renewcommand{\headrulewidth}{0pt} % Убирает линию в верхнем колонтитуле
+
+% Настройка содержания
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+
+% Титульная страница
+\newcommand{\customtitle}[4]{%
+    \begin{titlepage}
+    \centering
+    {\Large #1}\\[5cm] % Название организации
+    {\huge\bfseries #2}\\[5cm] % Название документа
+    {\Large Автор: #3}\\[3cm] % Автор
+    {\Large Дата: #4}\\[3cm] % Дата
+    \vfill
+    \end{titlepage}
+}
+
+% Начало документа
+\begin{document}
+
+% Титульная страница
+\customtitle{Название вашей организации}{Название документа}{Ваше имя}{\today}
+
+% Автоматическое содержание
+
+\tableofcontents
+
+\newpage
+
+\section*{Введение}
+\addcontentsline{toc}{section}{Введение} % Добавление в содержание
+
+Текст вашего введения.
+
+\section{Основная часть}
+\subsection{Первая тема}
+Текст первой темы.
+
+\subsection{Пример текста с различными шрифтами}
+\texttt{Это текст на моноширинном шрифте Courier New (используется для кода).}
+
+{\fontspec{Liberation Mono} Это текст на шрифте Liberation Mono для латиницы.}
+
+{\fontspec{Arial} Это текст на шрифте Arial для латиницы.}
+
+{\cyrillicfonttt Это текст на моноширинном шрифте Courier New для кириллицы.}
+
+\subsection*{Заключение}
+\addcontentsline{toc}{section}{Заключение} % Добавление в содержание
+Текст заключения.
+
+\end{document}
