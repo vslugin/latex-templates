@@ -1,0 +1,50 @@
+\section{Цели работы}
+
+\begin{enumerate}
+    \item Научиться создавать настольные приложения с графическим интерфейсом \guillemotleft Java FX\guillemotright~для платформы \guillemotleft Java\guillemotright~
+    (далее --- \guillemotleft приложения\guillemotright) в интегрированной среде разработки (далее --- \guillemotleft IDE\guillemotright);
+    \item Эксплуатировать IDE в режиме разработки и отладки;
+    \item Собирать приложения для режима эксплуатации.
+\end{enumerate}
+
+\section{Ход работы}
+
+Для достижения поставленных целей необходимо последовательно выполнить работы по следующему порядку:
+
+\subsection{Создание проекта в IDE}
+
+Для создания проекта в IDE \guillemotleft IntelliJ IDEA CE\guillemotright необходимо нажать на кнопку \guillemotleft создать \guillemotright, как показано на изображении \ref{ris:00_01}
+
+\input{images/01}
+
+\subsection{Запуск приложения в режиме разработки}
+
+Пример кода
+
+\begin{verbatim}
+    // Пример кода моноширинным текстом
+    public class HelloApplication extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader =
+    new FXMLLoader(HelloApplication.class
+    .getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
+\end{verbatim}
+
+\subsection{Запуск приложения в режиме отладки}
+
+И так далее...
+
+\subsection{Сборка приложения для режима эксплуатации}
+
+И тому подобное...
